@@ -1,1 +1,40 @@
-What is this?
+= What is this?
+
+This repository is a clone of the standard theme directory in Moodle 2.0
+
+It contains a small set of additional files to demonstrate how to create a floating dashboard (composed of blocks) in Moodle 2.0 using only YUI javascript and the new themes structure.
+
+= How do I use it?
+
+There are two groups of files provided in this theme. 
+
+There are only three files that are essential. The rest are there to make up the theme to provide a working example and give a working example of how to integrate this modification into 
+any theme.
+
+== The significant files:
+
+=== incl/dashboard.php
+
+This file declares four new block regions: 'personal', 'personal-1', 'personal-2', 'personal-3'
+
+If there are any blocks provided by any of these regions it will then build the html required for the dashboard. This means that if there are currently no blocks in the dashboard it won't be rendered at all. This is to decrease the impact the dashboard can have if it isn't needed.
+
+NB: When you first add the dashboard to a theme it will seem as though it doesn't work. This is because it won't yet have any blocks in any of its regions and the design of this file deliberatly leaves it off. To bring up the dashboard you can turn on editing and then move a region. The dashboard will be available as a target region and once it has at least one block it will appear on all pages normally (assuming it has a block).
+
+=== javascript/dashboard.js
+
+This file provides the YUI script necessary to toggle on and off the dashboard and center it. 
+
+It requires two html elements with the following ids: '#my-dashboard', '#dashboardbutton'
+
+The dashboard.php file uses '#my-dashboard' to identify the dashboard itself.
+
+The '#dashboardbutton' is provided so that you can create the toggle button. YUI will attached the appropriate events to the element with this id.
+
+=== style/dashboard.css
+
+Provides the styles needed to make the dashboard look like a dashboard.
+
+= Can I do this on another theme?
+
+= 
